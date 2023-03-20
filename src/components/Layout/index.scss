@@ -5,7 +5,11 @@
   background-color: #000;
 }
 
-.home-page {
+.home-page,
+.trending-page,
+.law-page,
+.dashboard,
+.user-page {
   position: fixed;
   right: 0;
   top: 70px;
@@ -15,4 +19,14 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+@media screen and (max-width: 600px) {
+  .home-page,
+  .trending-page,
+  .law-page,
+  .dashboard,
+  .user-page {
+    left: 0;
+    // top: 140px;
+  }
 }
