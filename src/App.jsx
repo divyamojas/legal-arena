@@ -23,10 +23,19 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={isFetching ? <LoaderPage /> : <Home />} />
-          <Route path="/trending" element={<Trending />} />
-          <Route path="/law" element={<Law />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/user" element={<User />} />
+          <Route
+            path="/trending"
+            element={isFetching ? <LoaderPage /> : <Trending />}
+          />
+          <Route path="/law" element={isFetching ? <LoaderPage /> : <Law />} />
+          <Route
+            path="/dashboard"
+            element={isFetching ? <LoaderPage /> : <Dashboard />}
+          />
+          <Route
+            path="/user"
+            element={isFetching ? <LoaderPage /> : <User />}
+          />
         </Route>
       </Routes>
     </>
