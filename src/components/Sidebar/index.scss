@@ -31,6 +31,17 @@
     justify-content: space-around;
     align-items: center;
     height: 100%;
+    a {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    a.active {
+      background: rgba(150, 123, 182, 0.1);
+      border-radius: 7px;
+    }
   }
 }
 

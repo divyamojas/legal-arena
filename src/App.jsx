@@ -10,12 +10,14 @@ import Trending from "./components/Trending";
 import User from "./components/User";
 import Dashboard from "./components/Dashboard";
 import LoaderPage from "./components/LoaderPage";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 
 function App() {
-  const [isFetching, setIsFetching] = useState(false);
+  const [isFetching, setIsFetching] = useState(true);
   // fix loader page to be active while loading
-
+  setTimeout(() => {
+    setIsFetching(false);
+  }, 3000);
   return (
     <>
       <Routes>
