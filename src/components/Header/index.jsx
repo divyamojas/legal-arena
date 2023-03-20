@@ -10,7 +10,7 @@ const Header = () => {
     <div className="header">
       <img src={headerLogo} alt="" className="header-logo" />
       <div className="profile-icon">
-        <FontAwesomeIcon icon={faUser} className="profile-logo" />
+        <FontAwesomeIcon icon={faUser} className="profile-logo" color="black" />
       </div>
     </div>
   );
