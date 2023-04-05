@@ -1,5 +1,5 @@
 import "./index.scss";
-import { headerLogo } from "../../assets/";
+import { headerLogo } from "../../assets/images";
 
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

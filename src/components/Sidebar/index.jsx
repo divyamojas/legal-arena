@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { dashboard, home, law, trending, user } from "../../assets";
+import { dashboard, home, law, trending, user } from "../../assets/images";
 import "./index.scss";
 
 const Sidebar = () => (
