@@ -1,44 +1,56 @@
-// import
-
+// packages
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { Route, Routes } from "react-router-dom";
 
+//stylesheet
 import "./App.scss";
-import Layout from "./components/Layout";
-import Home from "./components/Home";
-import Law from "./components/Law";
-import Trending from "./components/Trending";
-import User from "./components/User";
-import Dashboard from "./components/Dashboard";
+
+// loading page
 import LoaderPage from "./components/LoaderPage";
-import { useState } from "react";
+
+// lazy loaded components
+const Home = lazy(() => import('./components/Home'));
+const Layout = lazy(() => import("./components/Layout"));
+const Law = lazy(() => import("./components/Law"));
+const Trending = lazy(() => import("./components/Trending"));
+const User = lazy(() => import("./components/User"));
+const Dashboard = lazy(() => import("./components/Dashboard"));
 
 function App() {
   const [isFetching, setIsFetching] = useState(true);
   // fix loader page to be active while loading
-  setTimeout(() => {
-    setIsFetching(false);
-  }, 3000);
+  useEffect(() => {
+
+    setTimeout(() => {
+      setIsFetching(false);
+    }, 2000);
+  })
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={isFetching ? <LoaderPage /> : <Home />} />
-          <Route
-            path="/trending"
-            element={isFetching ? <LoaderPage /> : <Trending />}
-          />
-          <Route path="/law" element={isFetching ? <LoaderPage /> : <Law />} />
-          <Route
-            path="/dashboard"
-            element={isFetching ? <LoaderPage /> : <Dashboard />}
-          />
-          <Route
-            path="/user"
-            element={isFetching ? <LoaderPage /> : <User />}
-          />
-        </Route>
-      </Routes>
+      {isFetching ? <LoaderPage load = {true}/> : (
+        <Suspense fallback={<LoaderPage load = {false} />}>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route
+                path="/trending"
+                element={<Trending />}
+              />
+              <Route path="/law" element={<Law />} />
+              <Route
+                path="/dashboard"
+                element={<Dashboard />}
+              />
+              <Route
+                path="/user"
+                element={<User />}
+              />
+            </Route>
+          </Routes>
+        </Suspense>
+      )}
     </>
+
   );
 }
 
